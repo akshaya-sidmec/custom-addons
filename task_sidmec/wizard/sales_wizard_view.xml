@@ -4,13 +4,13 @@
         <field name="name">salesman report</field>
         <field name="model">sales.wizard</field>
         <field name="arch" type="xml">
-            <form string="customer">
-                <group string="salesman report">
+            <form string="Salesmam_Report">
+
                     <group>
                         <field name="salesperson"/>
                         <field name="from_date"/>
                         <field name="to_date"/>
-                    </group>
+
                 </group>
                 <footer>
                     <button string="pdf report"
@@ -25,7 +25,7 @@
     </record>
 
     <record id="action_sales_wizard_report" model="ir.actions.act_window">
-        <field name="name">salesman wizard</field>
+        <field name="name">Salesman Report</field>
         <field name="res_model">sales.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>

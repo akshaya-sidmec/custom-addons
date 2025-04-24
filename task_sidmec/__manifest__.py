@@ -17,7 +17,7 @@
         "data/ship_seq.xml",
         "report/pdf_report.xml",
         "report/report_view.xml",
-        # "report/lanscape.xml",
+        "report/salesman_report.xml",
         "wizard/customer_wizard.xml",
         "wizard/sales_wizard_view.xml"
     ],

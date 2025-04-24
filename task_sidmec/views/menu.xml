@@ -38,7 +38,7 @@
     />
 
     <menuitem id="menu_reporting"
-              name="salesman_Reporting" action="action_sales_wizard_report"
+              name="Salesman_Reporting" action="action_sales_wizard_report"
               parent="sale.menu_sale_report"
 
     />

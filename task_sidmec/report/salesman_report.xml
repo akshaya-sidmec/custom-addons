@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_patient_report_document">
+        <t t-call="web.html_container">
+<!--            <t t-foreach="data" t-as="order">-->
+                <t t-call="web.external_layout">
+                    <t t-foreach="sale_order" t-as="i">
+                        <span t-field="i.partner_id.name"/>
+                    </t>
+
+
+                </t>
+<!--            </t>-->
+        </t>
+    </template>
+</odoo>

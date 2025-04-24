@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_hospital_lines_form" model="ir.ui.view">
+        <field name="name">lines</field>
+        <field name="model">hospital.lines</field>
+        <field name="arch" type="xml">
+            <form string="lines">
+                <sheet>
+
+                    <group>
+                        <field name="product_id"/>
+
+                        <field name="qty"/>
+
+                        <field name="unit_price"/>
+                        <field name="sub_total"/>
+
+
+                    </group>
+
+                </sheet>
+
+                <chatter reload_on_post="True"/>
+            </form>
+        </field>
+    </record>
+    <record id="view_hospital_lines_list" model="ir.ui.view">
+        <field name="name">lines</field>
+        <field name="model">hospital.lines</field>
+        <field name="arch" type="xml">
+<!--            <list string="lines" create="0" delete="0" edit="0">-->
+               <list string="lines" >
+
+                        <field name="product_id"/>
+
+                        <field name="qty"/>
+
+                        <field name="unit_price"/>
+                        <field name="sub_total"/>
+
+
+
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hospital_lines" model="ir.actions.act_window">
+        <field name="name">lines</field>
+        <field name="res_model">hospital.lines</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_hospital_lines_list"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="seq_res_partner" model="ir.sequence">
+        <field name="name">Customer Reference</field>
+        <field name="code">res.partner</field><!-- can give any name I gave model name  -->
+        <field name="prefix">CUST/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+
+    </record>
+</odoo>

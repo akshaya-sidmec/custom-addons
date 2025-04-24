@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_patient_form" model="ir.ui.view">
+        <field name="name">patient</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form string="patient">
+                <header>
+                    <button name="send_email" string="Send mail" type="object" class="btn-primary"/>
+                    <field name="status" widget="statusbar" statusbar_visible="admit,discharge"/>   #options="{'clickable':'1'}"
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                name="view_patient_lines"
+                                type="object"
+                                icon="fa-pencil-square-o"
+                                string="patient"/>
+                    </div>
+                     <field name="image" widget="image" class="oe_avatar"/>
+
+                    <group>
+                        <group>
+                             <field name="ref" readonly="true"/>
+                            <field name="doctor_id"/>
+
+                            <field name="name"/>
+
+                            <field name="is_patient_in_ward"/>
+                            <field name="admit_date" invisible="is_patient_in_ward == False"/>
+                            <field name="discharge_date" invisible="is_patient_in_ward == False"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="email"/>
+                            <field name="gender_doctor"/>
+                            <field name="patients"/>
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page string="order lines">
+
+                            <field name="patient_lines">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="qty"/>
+                                    <field name="unit_price"/>
+                                    <field name="sub_total"/>
+                                </list>
+                                <form>
+                                    <field name="product_id"/>
+                                    <field name="qty"/>
+                                    <field name="unit_price"/>
+                                    <field name="sub_total"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="other information">
+                            <group>
+                                <field name="user_id"/>
+                                <field name="company_id"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                    <chatter reload_on_post="True"/>
+                </sheet>
+
+
+            </form>
+        </field>
+    </record>
+    <record id="view_patient_list" model="ir.ui.view">
+        <field name="name">patient</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <list string="patient">
+                <field name="sequence" widget="handle"/>
+                <field name="doctor_id"/>
+                <field name="name"/>
+                <field name="admit_date"/>
+                <field name="discharge_date"/>
+                <field name="age" optional="show"/>
+                <field name="gender" optional="hide"/>
+                <field name="gender_doctor"/>
+                <field name="patients"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_patient_kanban">
+        <field name="name">patient</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="email"/>
+                <field name="gender"/>
+                <field name="patient_lines"/>
+                <field name="gender_doctor"/>
+                 <field name="patients"/>
+                <!--                                    <field name="patient_id"/>-->
+
+                <!--                    <field name="last_activity"/>-->
+                <!--                    <field name="is_current"/>-->
+                <templates>
+                    <t t-name="card" class="flex-row">
+                        <div class="d-flex flex-column ms-3">
+                            <div class="d-flex align-items-center">
+                                <field name="name" string="Name" class="fw-bolder"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="action_hospital_patient" model="ir.actions.act_window">
+        <field name="name">patient</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="view_id" ref="view_patient_list"/>
+    </record>
+
+</odoo>

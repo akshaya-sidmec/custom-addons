@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_customer_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="object">
+<!--                <t t-call="web.external_layout">-->
+                    <img t-if="object.image" t-att-src="image_data_uri(object.image)" style="max-height: 100px;"
+                         alt="Logo"/>
+                    <br/>
+                    <div class="page" style="text-align: right;">
+                        <span t-field="object.cust_id"/>
+                        <br/>
+                        <span t-field="object.name"/>
+                        <br/>
+                        <span t-field="object.age"/>
+
+                    </div>
+
+                    <div class="page" style="text-align: right;">
+                        <p>
+                            <b>User</b>
+                        </p>
+                        <span t-field="object.user_id.name"/>
+
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>REF</th>
+                                <!--                                <th>Doctor</th>-->
+                                <th>Name</th>
+                                <th>Age</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="object" t-as="l">
+                                <tr>
+                                    <td>
+                                        <t t-esc="l.cust_id"/>
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="l.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="l.age"/>
+                                    </td>
+
+
+                                </tr>
+                            </t>
+                        </tbody>
+
+
+                    </table>
+
+
+                </t>
+            </t>
+<!--        </t>-->
+
+    </template>
+</odoo>

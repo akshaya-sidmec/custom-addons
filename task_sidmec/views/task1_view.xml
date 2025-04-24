@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_contacts_update" model="ir.ui.view">
+        <field name="name">contact form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_type']" position="before">
+                <field name="cust_id" readonly="1" string="Cust_ID"/>
+            </xpath>
+
+            <xpath expr="//field[@name='vat']" position="after">
+            <field name="gst_no"/>
+            </xpath>
+            <xpath expr="//field[@name='gst_no']" position="after">
+            <field name="dob"/>
+            </xpath>
+            <xpath expr="//field[@name='dob']" position="after">
+                <field name="age"/>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

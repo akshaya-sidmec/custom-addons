@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_patient_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="object">
+                <t t-call="web.external_layout">
+                    <img t-if="object.image" t-att-src="image_data_uri(object.image)" style="max-height: 100px;"
+                         alt="Logo"/>
+                    <br/>
+                    <div class="page" style="text-align: right;">
+                        <span t-field="object.name"/>
+                        <br/>
+                        <span t-field="object.age"/>
+                        <br/>
+                        <span t-field="object.email"/>
+                        <br/>
+                        <span t-field="object.gender"/>
+                    </div>
+                    <div class="page" style="">
+                        <p>
+                            <b>Admit Date</b>
+                        </p>
+                        <span t-field="object.admit_date"/>
+
+                    </div>
+                    <div class="page" style="text-align: right;">
+                        <p>
+                            <b>User</b>
+                        </p>
+                        <span t-field="object.user_id"/>
+
+                    </div>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>product_id</th>
+                                <!--                                <th>Doctor</th>-->
+                                <th>qty</th>
+                                <th>unit_price</th>
+                                <th>sub_total</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="object.patient_lines" t-as="l">
+                                <tr>
+                                    <td>
+                                        <t t-esc="l.product_id.name"/>
+                                    </td>
+                                    <!--                                     <td>-->
+                                    <!--                                        <t t-esc="l.doctor_id.name"/>-->
+                                    <!--                                    </td>-->
+                                    <td>
+                                        <t t-esc="l.qty"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="l.unit_price"/>
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="l.sub_total"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    Total
+                                </td>
+                                <td>
+                                    <span t-esc="sum(l.sub_total for l in object.patient_lines)"/>
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+            <div class="page" style="">
+
+                        <span t-field="object.patients"/>
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

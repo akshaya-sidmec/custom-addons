@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="seq_task_customer" model="ir.sequence">
+        <field name="name">Customer Reference</field>
+        <field name="code">task.customer</field><!-- can give any name i gave model name  -->
+        <field name="prefix">CUST/2025/</field>
+        <field name="padding">4</field>
+
+    </record>
+</odoo>

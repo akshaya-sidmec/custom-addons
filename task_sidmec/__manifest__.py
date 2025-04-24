@@ -1,0 +1,24 @@
+{
+    "name": "Task_Sidmec",
+    "author": "Akshaya",
+    "License": "LGPL-3",
+    "version": "18.0.1.1",
+    "depends": ["mail", "base", "sale"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/menu.xml",
+        "views/customer_view.xml",
+        "views/task1_view.xml",
+        "views/shipment.xml",
+        "views/followup.xml",
+        "data/sequence.xml",
+        "data/seq1.xml",
+        "data/mail_template.xml",
+        "data/ship_seq.xml",
+        "report/pdf_report.xml",
+        "report/report_view.xml",
+        # "report/lanscape.xml",
+        "wizard/customer_wizard.xml",
+        "wizard/sales_wizard_view.xml"
+    ],
+}

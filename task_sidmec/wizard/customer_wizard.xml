@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_wizard_report" model="ir.ui.view">
+        <field name="name">customer report</field>
+        <field name="model">customer.wizard</field>
+        <field name="arch" type="xml">
+            <form string="customer">
+                <group string="Customer report">
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="email"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="pdf report"
+                            name="view_pdf_report"
+                            type="object"
+                            class="oe_highlight"
+                            data-hotkey="q"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_report" model="ir.actions.act_window">
+        <field name="name">customer wizard</field>
+        <field name="res_model">customer.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+<!--        <field name="target">current</field>-->
+    </record>
+</odoo>

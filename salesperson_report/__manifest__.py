@@ -1,0 +1,9 @@
+{
+    "name":"sales_person",
+    "author":"Akshaya",
+    "License":"LGPL-3",
+    "version":"18.0.1.1",
+    "data":[
+        "views/menu.xml"
+    ],
+}

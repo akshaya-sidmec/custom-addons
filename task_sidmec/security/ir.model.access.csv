@@ -5,4 +5,4 @@ access_sale_order,access_sale_order,model_sale_order,,1,1,1,1
 access_shipment_document,access_shipment_document,model_shipment_document,,1,1,1,1
 access_customer_followup,access_customer_followup,model_customer_followup,,1,1,1,1
 access_customer_wizard,access_customer_wizard,model_customer_wizard,,1,1,1,1
-access_sales_wizard,access_sales_wizard,model_sales_wizard,,1,1,1,1
+access_sale_report_wizard,access_sale_report_wizard,model_sale_report_wizard,,1,1,1,1

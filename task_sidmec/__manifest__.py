@@ -19,6 +19,6 @@
         "report/report_view.xml",
         "report/salesman_report.xml",
         "wizard/customer_wizard.xml",
-        "wizard/sales_wizard_view.xml"
+        "wizard/sales_wizard_view.xml",
     ],
 }

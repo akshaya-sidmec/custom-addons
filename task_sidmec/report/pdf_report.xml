@@ -22,15 +22,15 @@
             <field name="binding_type">report</field>
         </record>
 
-        <record id="report_salesman" model="ir.actions.report">
-            <field name="name">Customer Report</field>
-            <field name="model">sales.wizard</field>
+        <record id="sale_wizard_report_pdf" model="ir.actions.report">
+            <field name="name">salesman</field>
+            <field name="model">sale.report.wizard</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">task_sidmec.report_patient_report_document</field>
-            <field name="report_file">task_sidmec.report_patient_report_document</field>
-            <!--            <field name="print_report_name">(object.id)</field>-->
-            <field name="binding_model_id" ref="model_sales_wizard"/>
-            <field name="binding_type">report</field>
+            <field name="report_name">task_sidmec.report_sale_wizard_pdf</field>
+            <field name="report_file">task_sidmec.report_sale_wizard_pdf</field>
+            <!--        <field name="print_report_name">(object.id)</field>-->
+            <field name="binding_model_id"
+                   ref="task_sidmec.model_sale_report_wizard"/>
         </record>
 
     </data>

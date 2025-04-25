@@ -8,10 +8,9 @@
                 <form>
                     <group>
                         <group>
-                            <field name="partner_id"/>
+                            <field name="users"/>
                             <field name="from_date"/>
-                        </group>
-                        <group>
+
                             <field name="to_date"/>
                         </group>
                     </group>
@@ -19,7 +18,7 @@
                         <button string="Sale Pdf Report"
                                 name="sale_pdf_report"
                                 type="object"
-                                lass="oe_highlight"
+                                class="oe_highlight"
                                 data-hotkey="q"/>
                         <button string="Cancel"
                                 class="btn btn-secondary"

@@ -17,14 +17,14 @@
     <template id="report_sale_wizard_pdf">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
-                <div class="page">
+                <div class="page" style="text-align-center">
                     <h1>Sale Report</h1>
 
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>
-                                    Customer
+                                    Sales Person
                                 </th>
                                 <th>
                                     From Date

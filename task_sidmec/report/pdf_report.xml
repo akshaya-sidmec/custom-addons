@@ -22,7 +22,7 @@
             <field name="binding_type">report</field>
         </record>
 
-        <record id="sale_wizard_report_pdf" model="ir.actions.report">
+        <record id="report_wizard_salesperson_pdf" model="ir.actions.report">
             <field name="name">salesman</field>
             <field name="model">sale.report.wizard</field>
             <field name="report_type">qweb-pdf</field>

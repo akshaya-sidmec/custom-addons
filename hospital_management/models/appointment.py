@@ -1,5 +1,4 @@
 from itertools import product
-
 from odoo import models,fields
 from odoo.addons.test_new_api.tests.test_one2many import One2manyCase
 from odoo.fields import Many2many

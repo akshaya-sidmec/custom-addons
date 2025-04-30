@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
     <t t-name="pos_customization.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <!--extension &  primary -->
         <xpath expr="//div[hasclass('product-content')]" position="before">
-            <div t-esc="props.lst_price"/><!--this is used to display in front-end-->
+            <div>
+                            <t t-if="props.barcode" t-esc="props.barcode"> </t>
+                                                <t t-else="" ><p>Empty_Barcode</p></t>
+
+                <!--Alternate_way -->
+<!--                            <t t-set="display_text" t-value="props.barcode or 'Empty_Barcode'"/>-->
+<!--                            <span t-esc="display_text"/>-->
+
+                <t t-if="props.barcode"
+                    t-out="this.code">
+
+                </t>
+
+                         </div>
+            <!--            <div t-esc="props.default_code"/> &lt;!&ndash; this is used to display in front-end &ndash;&gt;-->
         </xpath>
     </t>
 </templates>

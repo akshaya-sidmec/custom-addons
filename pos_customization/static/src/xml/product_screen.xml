@@ -2,8 +2,13 @@
 <templates id="template" xml:space="preserve">
     <t t-name="pos_customization.ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension">
         <xpath expr="//ProductCard" position="attributes">
-<!--            <attribute name="barcode">product.barcode</attribute>-->
-            <attribute name="lst_price">product.lst_price</attribute>
+            <attribute name="barcode">product.barcode</attribute>
+<!--            <attribute name="default_code">product.default_code</attribute>-->
         </xpath>
     </t>
+<!--        <t t-name="pos_customization.ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="primary">-->
+<!--        <xpath expr="//ProductCard" position="attributes">-->
+<!--            <attribute name="abc">product.abc</attribute>-->
+<!--        </xpath>-->
+<!--    </t>-->
 </templates>

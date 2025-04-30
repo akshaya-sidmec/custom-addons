@@ -14,6 +14,7 @@ class HospitalAppointment(models.Model):
     gender=fields.Selection(String="Gender",selection=[('Male','M'),('Female','F')])
     pat_lines=fields.One2many("hospital.appointment.lines","p_name","pat1_lines")
     status1=fields.Selection([('draft','Draft'),('confirm','Confirmed')],default="draft",tracking=True,compute="confirm")
+
     def confirm(self):
         for i in self:
             if i.status1==i.confirm:
@@ -27,6 +28,30 @@ class HospitalAppointment(models.Model):
 
     def status(self):
         pass
+
+    def confirm_appointment(self):
+        for rec in self:
+            patient = self.env["hospital.patient"].search([('appointment_id', '=', rec.id)])
+            if patient:
+                raise ValueError("record existed")
+            else:
+                vals = {
+                    'patient_id': rec.patient_id.id,
+                    'patient_email': rec.patient_email,
+                    'age': rec.age,
+                    'op_date': rec.date,
+                    'patient_lines': [(0, 0, {
+                        'product_id': i.product_id.id,
+                        'qty': i.qty,
+                        'unit_price': i.unit_price,
+                        'total': i.sub_total,
+
+                    }) for i in rec.pat_lines]
+
+                }
+            self.env["hospital.patient"].create(vals)
+            rec.status = "confirmed"
+
 
 class AppointmentLines(models.Model):
     _name= 'hospital.appointment.lines'

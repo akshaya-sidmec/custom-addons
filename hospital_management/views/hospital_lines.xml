@@ -8,12 +8,12 @@
                 <sheet>
 
                     <group>
-                        <field name="product_id"/>
+                        <field name="prod_id"/>
 
-                        <field name="qty"/>
+                        <field name="tot_items"/>
 
-                        <field name="unit_price"/>
-                        <field name="sub_total"/>
+                        <field name="prize"/>
+                        <field name="tot"/>
 
 
                     </group>
@@ -31,12 +31,12 @@
 <!--            <list string="lines" create="0" delete="0" edit="0">-->
                <list string="lines" >
 
-                        <field name="product_id"/>
+                        <field name="prod_id"/>
 
-                        <field name="qty"/>
+                        <field name="tot_items"/>
 
-                        <field name="unit_price"/>
-                        <field name="sub_total"/>
+                        <field name="prize"/>
+                        <field name="tot"/>
 
 
 

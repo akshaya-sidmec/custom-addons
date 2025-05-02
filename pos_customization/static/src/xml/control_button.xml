@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- Inheriting ControlButtons to add Custom_Button after Price List button -->
+    <t t-name="pos_customization.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+<!--        <xpath expr="//t[@t-if='props.showRemainingButtons']//button[contains(@class, 'o_pricelist_button')]" position="after">-->
+        <xpath expr="//button[contains(@class, 'o_pricelist_button')]" position="after">
+            <button t-att-class="CustomClass"><!--t-on-click="onClickCustomButton"-->
+                <i role="img" aria-label="Custom_Button" title="Custom_Button" />
+                Custom_Button
+            </button>
+        </xpath>
+
+
+    <!-- Inheriting Orderline to add Custom_Button after internal note container -->
+        <xpath expr="//button[contains(@class, 'more-btn')]" position="before">
+                <button t-if="!props.showRemainingButtons" class="set-partner btn btn-light btn-sm lh-sm text-truncate w-auto">
+                Custom_Button
+            </button>
+        </xpath>
+    </t>
+</templates>

@@ -45,16 +45,16 @@
 
                             <field name="patient_lines">
                                 <list editable="bottom">
-                                    <field name="product_id"/>
-                                    <field name="qty"/>
-                                    <field name="unit_price"/>
-                                    <field name="sub_total"/>
+                                    <field name="prod_id"/>
+                                    <field name="tot_items"/>
+                                    <field name="prize"/>
+                                    <field name="tot"/>
                                 </list>
                                 <form>
-                                    <field name="product_id"/>
-                                    <field name="qty"/>
-                                    <field name="unit_price"/>
-                                    <field name="sub_total"/>
+                                    <field name="prod_id"/>
+                                    <field name="tot_items"/>
+                                    <field name="prize"/>
+                                    <field name="tot"/>
                                 </form>
                             </field>
                         </page>
@@ -79,14 +79,14 @@
         <field name="arch" type="xml">
             <list string="patient">
                 <field name="sequence" widget="handle"/>
-                <field name="doctor_id"/>
+                <field name="doctor_id" optional="hide"/>
                 <field name="name"/>
-                <field name="admit_date"/>
-                <field name="discharge_date"/>
+                <field name="admit_date" optional="hide"/>
+                <field name="discharge_date" optional="hide"/>
                 <field name="age" optional="show"/>
                 <field name="gender" optional="hide"/>
-                <field name="gender_doctor"/>
-                <field name="patients"/>
+                <field name="gender_doctor" optional="hide"/>
+                <field name="patients" optional="hide"/>
             </list>
         </field>
     </record>

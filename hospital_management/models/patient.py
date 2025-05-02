@@ -12,7 +12,7 @@ class HospitalPatient(models.Model):
 
     ref=fields.Char(string="Ref_ID",default="New")
     # doctor_id=fields.Many2one('hospital.doctor',String="name",required=True,tracking=True,domain=[('gender_doctor',"=",'Female')])
-    doctor_id=fields.Many2one('hospital.doctor',String="name",required=True,tracking=True)
+    doctor_id=fields.Many2one('hospital.doctor',String="name",tracking=True)
     name = fields.Char(String="Name",required=True)
     age =fields.Integer(String="Age")
     email = fields.Char(string="email")
@@ -30,6 +30,7 @@ class HospitalPatient(models.Model):
     user_id = fields.Many2one("res.users", "user", compute="compute_user_company")
     company_id = fields.Many2one("res.company", "Company", compute="compute_user_company")
     sequence=fields.Integer(default=0)
+
 
 
     @api.model_create_multi #inheriting method
@@ -80,17 +81,17 @@ class HospitalPatient(models.Model):
 class HospitalLines(models.Model):
     _name = 'hospital.lines'
 
-    product_id = fields.Many2one("product.product", "product Name")
-    qty = fields.Integer("qty")
-    unit_price = fields.Float("unit_price",compute="compute_lines")
+    prod_id = fields.Many2one("product.product", "product Name")
+    tot_items = fields.Integer("qty")
+    prize = fields.Float("unit_price",compute="compute_lines")
     patient = fields.Many2one("hospital.patient", "patient")
-    sub_total = fields.Float(String="Sub_Total",compute="subtotal")
+    tot = fields.Float(String="Sub_Total",compute="subtotal")
 
 
     def subtotal(self):
         for i in self:
-            i.sub_total =i.unit_price*i.qty
+            i.tot =i.prize*i.tot_items
 
     def compute_lines(self):
         for i in self:
-            i.unit_price = i.product_id.standard_price
+            i.prize = i.prod_id.standard_price

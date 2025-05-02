@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_customization.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[contains(text(), ' Debug Window')]" position="after">
+<!--            <DropdownItem onSelected="() => this.button()">-->
+                 <DropdownItem onSelected="button">
+                New Dropdown
+            </DropdownItem>
+        </xpath>
+    </t>
+
+</templates>
